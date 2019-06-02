@@ -16,7 +16,8 @@ public class GeneratedNumbers {
 	public Set<Integer> randomPick(){
 		Random random = new Random();
 		int selection;
-				
+		
+		//create and populate the lottery numbers
 		List<Integer> pick = new ArrayList<Integer>();
 		Set<Integer> result = new HashSet<Integer>();
 		for(int i = 1; i<=numberCount; i++) {
@@ -24,6 +25,7 @@ public class GeneratedNumbers {
 			pick.add(i);
 		}//end for loop
 		
+		//picks the random winning lottery numbers
 		for(int i = 0; i < pickCount; i++) {
 			
 			selection = random.nextInt(pick.size()) + 1;

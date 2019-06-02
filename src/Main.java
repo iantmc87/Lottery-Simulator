@@ -16,15 +16,14 @@ public class Main {
 		while(restart.equalsIgnoreCase("y")) {
 		
 			//calls on userNumbers class, sorts and outputs to console
-			Set<Integer> userNumbers = picker.getUserNumbers();
-			List<Integer> userSorted = new ArrayList<Integer>(userNumbers);
+			//Set<Integer> userNumbers = picker.getUserNumbers();
+			List<Integer> userSorted = new ArrayList<Integer>(picker.getUserNumbers());
 			Collections.sort(userSorted);
 			System.out.println("Your numbers:\n");
 			printNumbers(userSorted);
 		
 			//calls on generatedNumbers class, sorts and outputs to console
-			Set<Integer> pickNumbers = generate.randomPick();
-			List<Integer> pickSorted = new ArrayList<Integer>(pickNumbers);
+			List<Integer> pickSorted = new ArrayList<Integer>(generate.randomPick());
 			Collections.sort(pickSorted);
 			System.out.println("\n\nWinning numbers:\n");
 			printNumbers(pickSorted);
@@ -33,6 +32,15 @@ public class Main {
 			userSorted.retainAll(pickSorted);
 			System.out.println("\n\nMatching Numbers:\n");
 			printNumbers(userSorted);
+			
+			//if statement for outputting if user is a winner or not
+			if(userSorted.size() >= 3) {
+				System.out.print("\n\n***Congratulations you have matched " + userSorted.size() + " numbers!!!***");
+			} else if(userSorted.size() > 0 && userSorted.size() <= 2) {
+				System.out.print("\n\n***Unlucky you have only matched " + userSorted.size() + " numbers, better luck next time***");
+			} else {
+				System.out.print("\n\n***Unlucky you haven't matched any numbers, better luck next time***");
+			}
 		
 			System.out.print("\n\n\nTo try more numbers press Y or press any other key to exit\n\n");
 			restart = in.nextLine();

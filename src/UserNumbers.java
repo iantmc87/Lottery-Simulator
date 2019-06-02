@@ -5,6 +5,10 @@ import java.util.Set;
 
 public class UserNumbers {
 	
+	/**
+	 * Method for getting users chosen numbers
+	 * @return set of integers
+	 */
 	public Set<Integer> getUserNumbers () {
 		
 		Scanner in = new Scanner(System.in);		
@@ -15,7 +19,7 @@ public class UserNumbers {
 		int amountNumbers = gn.pickCount;
 		int totalNumbers = gn.numberCount;
 		
-		System.out.print("Type your chosen " + amountNumbers + " numbers between 1 and " + totalNumbers + ", pressing enter after each number");
+		System.out.print("Type your chosen lottery " + amountNumbers + " numbers between 1 and " + totalNumbers + ", pressing enter after each number");
 		
 		for(int i = 0; i < 6;i++) {
 			
