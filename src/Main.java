@@ -16,15 +16,12 @@ public class Main {
 		while(restart.equalsIgnoreCase("y")) {
 		
 			//calls on userNumbers class, sorts and outputs to console
-			//Set<Integer> userNumbers = picker.getUserNumbers();
-			List<Integer> userSorted = new ArrayList<Integer>(picker.getUserNumbers());
-			Collections.sort(userSorted);
+			List<Integer> userSorted = sort(picker.getUserNumbers());
 			System.out.println("Your numbers:\n");
 			printNumbers(userSorted);
 		
 			//calls on generatedNumbers class, sorts and outputs to console
-			List<Integer> pickSorted = new ArrayList<Integer>(generate.randomPick());
-			Collections.sort(pickSorted);
+			List<Integer> pickSorted = sort(generate.randomPick());
 			System.out.println("\n\nWinning numbers:\n");
 			printNumbers(pickSorted);
 		
@@ -63,4 +60,24 @@ public class Main {
 			System.out.print(myInt + " ");
 		}//end for loop
 	}//end printNumbers method
+	
+	private static List<Integer> sort (Set<Integer> sort) {
+		
+		List<Integer> sorting = new ArrayList<Integer>(sort);
+		int length = sorting.size();
+		int temp;
+		
+		for(int i = 0; i < length; i++) {
+			for (int j = 1; j < length; j++) {
+			
+				if(sorting.get(j - 1) > sorting.get(j)) {
+					temp = sorting.get(j-1);
+					sorting.set(j-1, sorting.get(j));
+					sorting.set(j, temp);
+				}
+			}
+		}
+		
+		return sorting;
+	}
 }//end class
